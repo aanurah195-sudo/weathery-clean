@@ -1,23 +1,23 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
 });
 
 export const weatherAPI = {
-  getCurrent: (params) => api.get('/weather/current', { params }),
-  getForecast: (params) => api.get('/weather/forecast', { params }),
-  search: (q) => api.get('/weather/search', { params: { q } }),
-  getSaved: () => api.get('/weather/saved'),
-  saveCity: (data) => api.post('/weather/saved', data),
-  deleteCity: (id) => api.delete(`/weather/saved/${id}`),
+  getCurrent: (params) => api.get('/api/weather/current', { params }),
+  getForecast: (params) => api.get('/api/weather/forecast', { params }),
+  search: (q) => api.get('/api/weather/search', { params: { q } }),
+  getSaved: () => api.get('/api/weather/saved'),
+  saveCity: (data) => api.post('/api/weather/saved', data),
+  deleteCity: (id) => api.delete(`/api/weather/saved/${id}`),
 };
 
 export const alertAPI = {
-  getAlerts: (params) => api.get('/alerts', { params }),
-  getAllAlerts: () => api.get('/alerts/all'),
-  dismiss: (id) => api.patch(`/alerts/${id}/dismiss`),
+  getAlerts: (params) => api.get('/api/alerts', { params }),
+  getAllAlerts: () => api.get('/api/alerts/all'),
+  dismiss: (id) => api.patch(`/api/alerts/${id}/dismiss`),
 };
 
 export default api;
