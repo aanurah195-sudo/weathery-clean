@@ -1,7 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useSearch } from '../hooks/useWeather';
-import './SearchBar.css';
+import './Searchbar.css';
 
 export default function SearchBar() {
   const { query, setQuery, results, isSearching, select, clear } = useSearch();
