@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000/api/weather';
+const API_BASE = `${import.meta.env.VITE_API_URL}/api/weather`;
 
 const useWeatherStore = create(
   devtools((set, get) => ({
